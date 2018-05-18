@@ -20,7 +20,7 @@ spec:
         role: "worker"
       containers:
       - name: autoscaler
-        image: wbuchwalter/autoscaler
+        image: vlavrenc/autoscaler:1.0.0
         resources:
           requests:
             cpu: 50m
