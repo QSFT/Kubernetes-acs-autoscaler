@@ -2,7 +2,6 @@ import requests
 from adal.adal_error import AdalError
 from azure.cli.core._profile import Profile
 from adal.adal_error import AdalError
-from azure.cli.core.prompting import prompt_pass, NoTTYException
 import azure.cli.core.azlogging as azlogging
 from azure.cli.core.util import CLIError
 
