@@ -8,7 +8,7 @@ click>=6.2
 python-dateutil==2.5.3
 cachetools>=2.0.0
 JSON-log-formatter>=0.1.0
-azure-cli==2.0.32
+azure-cli==2.0.3
 azure.storage==0.34.0
 azure-mgmt-containerservice==3.0.1
 
