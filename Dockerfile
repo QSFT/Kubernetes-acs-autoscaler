@@ -4,7 +4,7 @@ RUN apk --update add --virtual build-dependencies \
     python3-dev python-dev libffi-dev openssl-dev build-base && \
     pip install --upgrade pip cffi cryptography && \
     apk del build-dependencies && \
-    apk add --no-cache bash git && \
+    apk add --no-cache bash git make gcc libc-dev && \
     rm -rf /var/cache/apk/*
 
 COPY . /app/
