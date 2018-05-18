@@ -6,6 +6,7 @@ import time
 import sys
 import datadog
 import pykube
+import traceback
 
 import autoscaler.azure_login as azure_login
 from autoscaler.container_service import ContainerService
@@ -65,6 +66,9 @@ class Cluster(object):
             self.api = pykube.HTTPClient(
                 pykube.KubeConfig.from_service_account())       
 
+        self.arm_template = None
+        self.arm_parameters = None
+
         if template_file or template_file_url:
             self.arm_template = utils.get_arm_template(template_file, template_file_url)
             self.arm_parameters = utils.get_arm_parameters(parameters_file, parameters_file_url)
@@ -114,6 +118,7 @@ class Cluster(object):
                 return self.scale_loop_logic()
             except:
                 logger.warn("Unexpected error: {}".format(sys.exc_info()[0]))
+                logger.warn(traceback.format_exc())
                 return False
 
     def scale_loop_logic(self):

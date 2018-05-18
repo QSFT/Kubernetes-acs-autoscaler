@@ -1,7 +1,7 @@
 
 from azure.cli.core.commands.client_factory import get_mgmt_service_client
 from azure.mgmt.resource.resources import ResourceManagementClient
-from azure.mgmt.compute import ComputeManagementClient
+from azure.mgmt.containerservice import ContainerServiceClient
 from azure.mgmt.storage import StorageManagementClient
 from azure.storage.blob import BlockBlobService
 import time
@@ -21,7 +21,7 @@ class ContainerService(object):
         if container_service_name:
             self.container_service_name = container_service_name        
             self.is_acs_engine = False
-            self.acs_client = get_mgmt_service_client(ComputeManagementClient).container_services
+            self.acs_client = get_mgmt_service_client(ContainerServiceClient).container_services
             self.instance = self.acs_client.get(resource_group, container_service_name)   
         else:
             self.is_acs_engine = True
