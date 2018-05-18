@@ -14,8 +14,13 @@ RUN pip install -r /app/requirements.txt
 RUN apk update
 RUN apk add libffi-dev
 
+ARG GIT_STATUS
+ARG GIT_COMMIT
+ARG IMAGE_TAG
 
-
+ENV GIT_STATUS $GIT_STATUS
+ENV GIT_COMMIT $GIT_COMMIT
+ENV IMAGE_TAG $IMAGE_TAG
 
 
 
